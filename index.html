@@ -1,0 +1,803 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026 충남예고 총동문회 정기총회</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300..700&display=swap">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; background: #000; overflow: hidden; }
+  body { font-family: 'Noto Sans KR', 'Noto Sans CJK KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; -webkit-font-smoothing: antialiased; }
+
+  /* 1920x1080 stage, scaled to fit the window */
+  #stage { position: absolute; left: 50%; top: 50%; width: 1920px; height: 1080px; transform-origin: center center; }
+  #stage > section { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: hidden;
+    opacity: 0; visibility: hidden; transition: opacity .45s ease, visibility .45s; }
+  #stage > section.active { opacity: 1; visibility: visible; }
+
+  /* slide element defaults (match the slide format) */
+  h1 { font-size: 96px; font-weight: 600; line-height: 1.1; }
+  h2 { font-size: 64px; font-weight: 600; line-height: 1.15; }
+  h3 { font-size: 44px; font-weight: 600; line-height: 1.2; }
+  p  { font-size: 32px; line-height: 1.4; }
+  b  { font-weight: 700; }
+  img { display: block; }
+  aside { display: none; }
+  section { word-break: keep-all; overflow-wrap: break-word; }
+  /* flow content paints above full-bleed pinned backdrops (photo + scrim) */
+  #stage > section > :not([style*="position:absolute"]) { position: relative; }
+  section div { min-width: 0; }
+  table { border-collapse: collapse; width: 100%; }
+  th, td { text-align: left; padding: 0.35em 0.6em; border-bottom: 1px solid #D2D2D7; font-weight: 400; }
+  th { font-weight: 600; }
+  x-shape { display: block; flex: none; }
+  x-shape[kind="arrow-right"] { clip-path: polygon(0 30%, 60% 30%, 60% 0, 100% 50%, 60% 100%, 60% 70%, 0 70%); }
+
+  /* controls */
+  #hud { position: fixed; right: 20px; bottom: 16px; display: flex; gap: 8px; align-items: center; z-index: 10;
+    font: 13px/1 -apple-system, 'Noto Sans KR', sans-serif; color: rgba(255,255,255,.75); opacity: 0; transition: opacity .3s; }
+  body:hover #hud, #hud:focus-within { opacity: 1; }
+  #hud button { width: 36px; height: 36px; border: 0; border-radius: 50%; cursor: pointer; font-size: 16px;
+    background: rgba(210,210,215,.64); color: #1d1d1f; }
+  #hud button:active { transform: scale(.95); }
+  #count { padding: 0 8px; background: rgba(0,0,0,.45); border-radius: 18px; height: 36px; display: flex; align-items: center; }
+  #progress { position: fixed; left: 0; bottom: 0; height: 3px; background: #2997FF; z-index: 10; transition: width .3s; }
+
+  @media print {
+    @page { size: 1920px 1080px; margin: 0; }
+    html, body { height: auto; overflow: visible; background: none; }
+    #stage { position: static; transform: none !important; width: 1920px; height: auto; }
+    #stage > section { position: relative; opacity: 1; visibility: visible; transition: none; break-after: page; page-break-after: always; }
+    #hud, #progress { display: none; }
+  }
+</style>
+</head>
+<body>
+<main id="stage">
+<section id="cover" data-transition="fade" style="background:#161617;color:#F5F5F7;font-family:'Noto Sans KR', 'Noto Sans CJK KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:end;gap:20px">
+<img src="images/f01_00.jpg" alt="졸업생과 재학생 협연 출연진 단체 사진" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px;object-fit:cover">
+<div style="position:absolute;left:0px;top:0px;width:1920px;height:1080px;background:linear-gradient(to top, rgba(22,22,23,0.96) 0%, rgba(22,22,23,0.8) 45%, rgba(22,22,23,0.4) 100%)"></div>
+<p style="font-size:32px;font-weight:600;color:#2997FF">충남예술고등학교 총동문회</p>
+<h1 style="font-size:160px;font-weight:700;line-height:1.05;letter-spacing:-4px;color:#F5F5F7">2026 정기총회</h1>
+<p style="font-size:36px;font-weight:400;color:#D2D2D7">2026. 10. 24. 토요일 오후 6시  ·  더퍼스트 서래향 원베일리</p>
+<aside>충남예술고등학교 총동문회 2026 정기총회를 시작한다. 일시 2026년 10월 24일 토요일 오후 6시, 장소 더퍼스트 서래향 원베일리(반포대로 291 지하 1층 160A호).</aside>
+</section>
+
+<section id="agenda" data-transition="fade" style="background:#FBFBFD;color:#1D1D1F;font-family:'Noto Sans KR', 'Noto Sans CJK KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;padding:112px 128px;display:flex;flex-direction:column;gap:56px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:26px;font-weight:600;color:#0066CC">2026 정기총회</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1;letter-spacing:-1px;color:#1D1D1F">진행 순서</h2>
+</div>
+<div style="display:flex;flex-direction:column">
+<div style="display:flex;flex-direction:row;align-items:center;gap:40px;padding:22px 0px;border-top:1px solid #D2D2D7">
+<p style="width:96px;font-size:32px;font-weight:600;color:#0066CC">01</p>
+<p style="flex:1;font-size:40px;font-weight:600">개회 및 인사</p>
+<p style="font-size:28px;color:#6E6E73">제2대 동문회장</p>
+</div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:40px;padding:22px 0px;border-top:1px solid #D2D2D7">
+<p style="width:96px;font-size:32px;font-weight:600;color:#0066CC">02</p>
+<p style="flex:1;font-size:40px;font-weight:600">제2대 총동문회 활동 보고</p>
+<p style="font-size:28px;color:#6E6E73">2025~2026 주요 사업 10건</p>
+</div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:40px;padding:22px 0px;border-top:1px solid #D2D2D7">
+<p style="width:96px;font-size:32px;font-weight:600;color:#0066CC">03</p>
+<p style="flex:1;font-size:40px;font-weight:600">제2대 총동문회 퇴임식</p>
+<p style="font-size:28px;color:#6E6E73">임원 소개 및 감사</p>
+</div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:40px;padding:22px 0px;border-top:1px solid #D2D2D7">
+<p style="width:96px;font-size:32px;font-weight:600;color:#0066CC">04</p>
+<p style="flex:1;font-size:40px;font-weight:600">제3대 총동문회 취임식</p>
+<p style="font-size:28px;color:#6E6E73">임원 소개 및 조직 체계 변경</p>
+</div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:40px;padding:22px 0px;border-top:1px solid #D2D2D7">
+<p style="width:96px;font-size:32px;font-weight:600;color:#0066CC">05</p>
+<p style="flex:1;font-size:40px;font-weight:600">총동문회 가입 안내</p>
+<p style="font-size:28px;color:#6E6E73">가입 신청 및 회비 납부</p>
+</div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:40px;padding:22px 0px;border-top:1px solid #D2D2D7;border-bottom:1px solid #D2D2D7">
+<p style="width:96px;font-size:32px;font-weight:600;color:#0066CC">06</p>
+<p style="flex:1;font-size:40px;font-weight:600">동문의 밤</p>
+<p style="font-size:28px;color:#6E6E73">만찬 및 교류</p>
+</div>
+</div>
+<aside>오늘 정기총회는 개회 및 인사, 제2대 총동문회 활동 보고, 제2대 퇴임식, 제3대 취임식, 가입 안내, 동문의 밤 순서로 진행한다. 세부 순서는 현장 사정에 따라 조정한다.</aside>
+</section>
+
+<section id="s-report" data-transition="fade" style="background:#161617;color:#F5F5F7;font-family:'Noto Sans KR', 'Noto Sans CJK KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:center;gap:24px">
+<p style="font-size:32px;font-weight:600;color:#2997FF">02</p>
+<h1 style="font-size:140px;font-weight:700;line-height:1.05;letter-spacing:-4px;color:#F5F5F7">활동 보고</h1>
+<p style="font-size:40px;font-weight:400;color:#A1A1A6">제2대 총동문회  ·  2025~2026 주요 사업</p>
+<aside>제2대 총동문회의 2025년부터 2026년까지 주요 사업을 순서대로 보고한다. 각 사업은 사진 슬라이드와 내용 슬라이드 순으로 구성하였다.</aside>
+</section>
+
+<section id="timeline" data-transition="fade" style="background:#FBFBFD;color:#1D1D1F;font-family:'Noto Sans KR', 'Noto Sans CJK KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;padding:104px 128px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:26px;font-weight:600;color:#0066CC">활동 보고</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1;letter-spacing:-1px;color:#1D1D1F">주요 사업 연혁</h2>
+</div>
+<table style="font-family:'Noto Sans KR', 'Noto Sans CJK KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;font-size:28px;color:#1D1D1F">
+<tr><th style="width:8%;color:#6E6E73">No.</th><th style="width:26%;color:#6E6E73">일자</th><th style="width:66%;color:#6E6E73">사업</th></tr>
+<tr><td style="color:#0066CC">01</td><td>2025. 5. 20.</td><td>졸업생과 재학생이 함께하는 협연</td></tr>
+<tr><td style="color:#0066CC">02</td><td>2025. 9. 1.~9. 7.</td><td>3과 통합공연 〈결(結)〉 및 제2회 미술과 동문전</td></tr>
+<tr><td style="color:#0066CC">03</td><td>2025. 12. 6.</td><td>2025 정기총회 및 송년의 밤</td></tr>
+<tr><td style="color:#0066CC">04</td><td>2025. 12. 17. / 12. 22.</td><td>선후배 멘토링 특강 (미술과·무용과)</td></tr>
+<tr><td style="color:#0066CC">05</td><td>2026. 3. 3.</td><td>개학식 총동문회 장학금 수여</td></tr>
+<tr><td style="color:#0066CC">06</td><td>2026. 6. 공지</td><td>개교 30주년 기념행사 동문 참여</td></tr>
+<tr><td style="color:#0066CC">07</td><td>2026. 6. 29.~7. 10.</td><td>제3회 미술과 동문전 《만개(滿開), 피어나다》</td></tr>
+<tr><td style="color:#0066CC">08</td><td>2026. 7.</td><td>개교 30주년 기념식 및 예술제</td></tr>
+<tr><td style="color:#0066CC">09</td><td>2026. 8. 25.</td><td>선후배 멘토링 특강 (음악과)</td></tr>
+<tr><td style="color:#0066CC">10</td><td>2026. 8. 31. / 9. 1.</td><td>모교 교장선생님 이·취임</td></tr>
+</table>
+<aside>제2대 총동문회 임기 중 주요 사업 10건이다. 이후 슬라이드에서 사업별 사진과 내용을 순서대로 보고한다.</aside>
+</section>
+
+<section id="a1-photo" data-transition="fade" style="background:#161617;color:#F5F5F7;font-family:'Noto Sans KR', 'Noto Sans CJK KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;padding:112px 128px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:26px;font-weight:600;color:#2997FF">활동 보고 01  ·  2025. 5. 20.</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1;letter-spacing:-1px;color:#F5F5F7">졸업생과 재학생이 함께하는 협연</h2>
+</div>
+<div style="display:flex;flex-direction:row;gap:16px">
+<img src="images/f01_00.jpg" alt="협연 출연진 단체 사진" style="width:1100px;height:688px;object-fit:cover;border-radius:12px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<img src="images/f01_19.jpg" alt="음악과 무용과 협연 무대" style="width:548px;height:336px;object-fit:cover;border-radius:12px">
+<img src="images/f01_04.jpg" alt="미술 작품과 함께한 출연진" style="width:548px;height:336px;object-fit:cover;border-radius:12px">
+</div>
+</div>
+<aside>첫 번째 사업은 2025년 5월 20일 모교 강당에서 열린 졸업생과 재학생이 함께하는 협연이다.</aside>
+</section>
+
+<section id="a1-text" data-transition="fade" style="background:#F5F5F7;color:#1D1D1F;font-family:'Noto Sans KR', 'Noto Sans CJK KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;padding:112px 128px;display:flex;flex-direction:column;gap:72px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:26px;font-weight:600;color:#0066CC">활동 보고 01</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1;letter-spacing:-1px;color:#1D1D1F">졸업생과 재학생이 함께하는 협연</h2>
+</div>
+<div style="display:flex;flex-direction:row;gap:96px">
+<div style="width:520px;display:flex;flex-direction:column;gap:36px">
+<div style="display:flex;flex-direction:column;gap:6px"><p style="font-size:24px;color:#6E6E73">일시</p><p style="font-size:34px;font-weight:600">2025. 5. 20.</p></div>
+<div style="display:flex;flex-direction:column;gap:6px"><p style="font-size:24px;color:#6E6E73">장소</p><p style="font-size:34px;font-weight:600">충남예술고등학교 강당</p></div>
+<div style="display:flex;flex-direction:column;gap:6px"><p style="font-size:24px;color:#6E6E73">주최</p><p style="font-size:34px;font-weight:600">충남예고 총동문회</p></div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:32px;padding:0px 0px 0px 56px;border-left:1px solid #D2D2D7">
+<p style="font-size:32px;line-height:1.6;color:#1D1D1F">졸업생과 재학생이 한 무대에서 협연하는 공연으로 진행하였다.</p>
+<p style="font-size:32px;line-height:1.6;color:#1D1D1F">강당 수용 인원을 고려하여 학년별로 좌석을 배정하였으며, 다른 학년 재학생 다수가 입석으로 관람하였다.</p>
+<p style="font-size:32px;line-height:1.6;color:#1D1D1F">다수의 졸업생이 모교를 방문하여 공연을 관람하였다.</p>
+</div>
+</div>
+<aside>강당이 비좁아 학년별로 일부 좌석만 마련하였으나 다른 학년 재학생도 모여 뒤에서 서서 관람하였다. 모교를 찾은 졸업생도 많았다. 참여하고 응원해 주신 모든 분께 감사드린다.</aside>
+</section>
+
+<section id="a2-photo1" data-transition="fade" style="background:#161617;color:#F5F5F7;font-family:'Noto Sans KR', 'Noto Sans CJK KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;padding:112px 128px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:26px;font-weight:600;color:#2997FF">활동 보고 02  ·  2025. 9. 1.~9. 7.</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1;letter-spacing:-1px;color:#F5F5F7">3과 통합공연 및 제2회 미술과 동문전</h2>
+</div>
+<div style="display:flex;flex-direction:row;justify-content:center;gap:64px">
+<div style="display:flex;flex-direction:column;align-items:center;gap:20px">
+<img src="images/f02_00.jpg" alt="3과 통합공연 결 포스터" style="width:444px;height:628px;object-fit:cover;border-radius:12px">
+<p style="font-size:24px;color:#A1A1A6">3과 통합공연 〈결(結): 3색 조각의 하모니〉</p>
+</div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:20px">
+<img src="images/f03_00.jpg" alt="제2회 미술과 동문전 공간의 시간 포스터" style="width:502px;height:628px;object-fit:cover;border-radius:12px">
+<p style="font-size:24px;color:#A1A1A6">제2회 미술과 동문전 〈공간의 시간〉</p>
+</div>
+</div>
+<aside>두 번째 사업은 총동문회 주최 음악과·미술과·무용과 3과 통합공연과 제2회 미술과 동문전이다.</aside>
+</section>
+
+<section id="a2-photo2" data-transition="fade" style="background:#161617;color:#F5F5F7;font-family:'Noto Sans KR', 'Noto Sans CJK KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;padding:112px 128px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:26px;font-weight:600;color:#2997FF">활동 보고 02  ·  2025. 9. 7.</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1;letter-spacing:-1px;color:#F5F5F7">통합공연 및 전시 클로징</h2>
+</div>
+<div style="display:flex;flex-direction:row;gap:16px">
+<img src="images/f03_31.jpg" alt="통합공연 출연진과 운영진 단체 사진" style="width:1100px;height:688px;object-fit:cover;border-radius:12px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<img src="images/f03_27.jpg" alt="전시장 내 국악 공연" style="width:548px;height:336px;object-fit:cover;border-radius:12px">
+<img src="images/f03_12.jpg" alt="미술과 동문전 전시 전경" style="width:548px;height:336px;object-fit:cover;border-radius:12px">
+</div>
+</div>
+<aside>9월 7일 음악과·무용과 합동공연과 미술과 전시 클로징 파티, 작품설명회를 함께 진행하였다.</aside>
+</section>
+
+<section id="a2-text" data-transition="fade" style="background:#F5F5F7;color:#1D1D1F;font-family:'Noto Sans KR', 'Noto Sans CJK KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;padding:112px 128px;display:flex;flex-direction:column;gap:64px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:26px;font-weight:600;color:#0066CC">활동 보고 02</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1;letter-spacing:-1px;color:#1D1D1F">〈결(結): 3색 조각의 하모니〉</h2>
+</div>
+<div style="display:flex;flex-direction:row;gap:96px">
+<div style="width:520px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:6px"><p style="font-size:24px;color:#6E6E73">일시</p><p style="font-size:34px;font-weight:600">2025. 9. 7.(일) 16:00</p></div>
+<div style="display:flex;flex-direction:column;gap:6px"><p style="font-size:24px;color:#6E6E73">장소</p><p style="font-size:34px;font-weight:600">연희예술극장</p><p style="font-size:24px;color:#6E6E73">서울 서대문구 연희맛로 2-3 지하 1층</p></div>
+<div style="display:flex;flex-direction:column;gap:6px"><p style="font-size:24px;color:#6E6E73">참여</p><p style="font-size:34px;font-weight:600">졸업생 40여 명, 재학생 10여 명</p></div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:0px;padding:0px 0px 0px 56px;border-left:1px solid #D2D2D7">
+<div style="display:flex;flex-direction:row;align-items:baseline;gap:32px;padding:20px 0px;border-bottom:1px solid #D2D2D7"><p style="width:280px;font-size:26px;color:#0066CC;font-weight:600">첫 번째 색 조각 · 미술</p><p style="flex:1;font-size:34px;font-weight:600">공간의 시간</p></div>
+<div style="display:flex;flex-direction:row;align-items:baseline;gap:32px;padding:20px 0px;border-bottom:1px solid #D2D2D7"><p style="width:280px;font-size:26px;color:#0066CC;font-weight:600">두 번째 색 조각 · 음악</p><p style="flex:1;font-size:34px;font-weight:600">시간 위에 피는 예술</p></div>
+<div style="display:flex;flex-direction:row;align-items:baseline;gap:32px;padding:20px 0px;border-bottom:1px solid #D2D2D7"><p style="width:280px;font-size:26px;color:#0066CC;font-weight:600">세 번째 색 조각 · 무용</p><p style="flex:1;font-size:34px;font-weight:600">감각, 하나의 결</p></div>
+<p style="font-size:30px;line-height:1.6;color:#1D1D1F;padding:32px 0px 0px 0px">제2회 미술과 동문전을 9. 1.~9. 7. 개최하였으며, 9. 7. 음악과·무용과 합동공연과 함께 전시 클로징 파티 및 작품설명회를 진행하였다.</p>
+</div>
+</div>
+<aside>총동문회 주최로 음악과, 미술과, 무용과 세 과가 함께한 통합공연이다. 졸업생 40여 명과 재학생 10여 명, 총 50여 명의 충남예고인이 참여하였다.</aside>
+</section>
+
+<section id="a2-credit" data-transition="fade" style="background:#FBFBFD;color:#1D1D1F;font-family:'Noto Sans KR', 'Noto Sans CJK KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;padding:112px 128px;display:flex;flex-direction:column;gap:64px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:26px;font-weight:600;color:#0066CC">활동 보고 02</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1;letter-spacing:-1px;color:#1D1D1F">통합공연 운영 및 제작</h2>
+</div>
+<div style="display:flex;flex-direction:row;gap:96px">
+<div style="width:760px;display:flex;flex-direction:column">
+<div style="display:flex;flex-direction:row;gap:32px;padding:18px 0px;border-top:1px solid #D2D2D7"><p style="width:300px;font-size:28px;color:#6E6E73">총괄</p><p style="flex:1;font-size:30px;font-weight:600">정하린</p></div>
+<div style="display:flex;flex-direction:row;gap:32px;padding:18px 0px;border-top:1px solid #D2D2D7"><p style="width:300px;font-size:28px;color:#6E6E73">기획</p><p style="flex:1;font-size:30px;font-weight:600">윤지혜, 주세나</p></div>
+<div style="display:flex;flex-direction:row;gap:32px;padding:18px 0px;border-top:1px solid #D2D2D7"><p style="width:300px;font-size:28px;color:#6E6E73">진행</p><p style="flex:1;font-size:30px;font-weight:600">김민환</p></div>
+<div style="display:flex;flex-direction:row;gap:32px;padding:18px 0px;border-top:1px solid #D2D2D7"><p style="width:300px;font-size:28px;color:#6E6E73">공연 스태프 감독</p><p style="flex:1;font-size:30px;font-weight:600">윤지혜, 이형은</p></div>
+<div style="display:flex;flex-direction:row;gap:32px;padding:18px 0px;border-top:1px solid #D2D2D7"><p style="width:300px;font-size:28px;color:#6E6E73">포스터·리플릿·현수막</p><p style="flex:1;font-size:30px;font-weight:600">안소영</p></div>
+<div style="display:flex;flex-direction:row;gap:32px;padding:18px 0px;border-top:1px solid #D2D2D7"><p style="width:300px;font-size:28px;color:#6E6E73">공연 음향 지원</p><p style="flex:1;font-size:30px;font-weight:600">장라영</p></div>
+<div style="display:flex;flex-direction:row;gap:32px;padding:18px 0px;border-top:1px solid #D2D2D7;border-bottom:1px solid #D2D2D7"><p style="width:300px;font-size:28px;color:#6E6E73">스태프</p><p style="flex:1;font-size:30px;font-weight:600">운영진 일동</p></div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:24px">
+<p style="font-size:28px;font-weight:600;color:#0066CC">참여 운영진 (17명)</p>
+<p style="font-size:30px;line-height:1.9;color:#1D1D1F">정하린  안선혜  조원미  주세나  윤지혜  김민환  장연욱  안소영  한지수  이정은  정성희  장라영  이예린  이형은  정나원  박아인  최미서</p>
+</div>
+</div>
+<aside>통합공연은 정하린 동문회장이 총괄하고, 윤지혜 운영위원장과 주세나 무용과 부회장이 기획을 맡았다. 공연 스태프 감독은 윤지혜 운영위원장과 이형은 운영위원이 함께하였다. 수고해 주신 운영진께 감사드린다.</aside>
+</section>
+
+<section id="a2-cast" data-transition="fade" style="background:#FBFBFD;color:#1D1D1F;font-family:'Noto Sans KR', 'Noto Sans CJK KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;padding:112px 128px;display:flex;flex-direction:column;gap:64px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:26px;font-weight:600;color:#0066CC">활동 보고 02</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1;letter-spacing:-1px;color:#1D1D1F">공연 및 전시 출연진</h2>
+</div>
+<div style="display:flex;flex-direction:row;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:20px;background:#FFFFFF;border:1px solid #E0E0E0;border-radius:18px;padding:40px">
+<p style="font-size:26px;font-weight:600;color:#0066CC">음악과  ·  10명</p>
+<p style="font-size:30px;line-height:1.9">민병숙  조원미  한지수  심정여  박주영  송윤석  김민환  최영롱  이미엽  박아인</p>
+</div>
+<div style="flex:1.5;display:flex;flex-direction:column;gap:20px;background:#FFFFFF;border:1px solid #E0E0E0;border-radius:18px;padding:40px">
+<p style="font-size:26px;font-weight:600;color:#0066CC">미술과 전시작가  ·  20명</p>
+<p style="font-size:30px;line-height:1.9">김도은  김선우  김윤후  김태영  박효리  심한별  안소현  안유정  윤형진  유효정  이예린  이하영  조민서  조인아  정나원  정하린  차예솔  최미서  최효령  하은철</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px;background:#FFFFFF;border:1px solid #E0E0E0;border-radius:18px;padding:40px">
+<p style="font-size:26px;font-weight:600;color:#0066CC">무용과  ·  5명</p>
+<p style="font-size:30px;line-height:1.9">장미주  주세나  김소정  강민정  남궁진우</p>
+</div>
+</div>
+<aside>공연 및 전시 출연진은 음악과 10명, 미술과 전시작가 20명, 무용과 5명이다.</aside>
+</section>
+
+<section id="a3-photo" data-transition="fade" style="background:#161617;color:#F5F5F7;font-family:'Noto Sans KR', 'Noto Sans CJK KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;padding:112px 128px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:26px;font-weight:600;color:#2997FF">활동 보고 03  ·  2025. 12. 6.</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1;letter-spacing:-1px;color:#F5F5F7">2025 정기총회 및 송년의 밤</h2>
+</div>
+<div style="display:flex;flex-direction:row;gap:16px">
+<img src="images/f04_01.jpg" alt="정기총회 참석 동문 단체 사진" style="width:824px;height:688px;object-fit:cover;border-radius:12px">
+<img src="images/f04_02.jpg" alt="송년의 밤 만찬 단체 사진" style="width:824px;height:688px;object-fit:cover;border-radius:12px">
+</div>
+<aside>세 번째 사업은 2025년 12월 6일 열린 2025 정기총회 및 송년의 밤이다.</aside>
+</section>
+
+<section id="a3-text" data-transition="fade" style="background:#F5F5F7;color:#1D1D1F;font-family:'Noto Sans KR', 'Noto Sans CJK KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;padding:112px 128px;display:flex;flex-direction:column;gap:72px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:26px;font-weight:600;color:#0066CC">활동 보고 03</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1;letter-spacing:-1px;color:#1D1D1F">2025 정기총회 및 송년의 밤</h2>
+</div>
+<div style="display:flex;flex-direction:row;gap:96px">
+<div style="width:520px;display:flex;flex-direction:column;gap:36px">
+<div style="display:flex;flex-direction:column;gap:6px"><p style="font-size:24px;color:#6E6E73">일시</p><p style="font-size:34px;font-weight:600">2025. 12. 6.(토) 18:30</p></div>
+<div style="display:flex;flex-direction:column;gap:6px"><p style="font-size:24px;color:#6E6E73">장소</p><p style="font-size:34px;font-weight:600">베이징 와이시티점</p><p style="font-size:24px;color:#6E6E73">아산시 배방읍 광장로 210, 4층</p></div>
+<div style="display:flex;flex-direction:column;gap:6px"><p style="font-size:24px;color:#6E6E73">참가비</p><p style="font-size:34px;font-weight:600">50,000원</p></div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:32px;padding:0px 0px 0px 56px;border-left:1px solid #D2D2D7">
+<p style="font-size:32px;line-height:1.6;color:#1D1D1F">2025년 사업을 마무리하는 정기총회와 송년의 밤을 함께 개최하였다.</p>
+<p style="font-size:32px;line-height:1.6;color:#1D1D1F">동문 간 안부를 나누고 교류하는 자리로 운영하였다.</p>
+</div>
+</div>
+<aside>2025년 한 해를 마무리하며 동문들이 서로의 안부를 나누는 정기총회 및 송년의 밤을 개최하였다.</aside>
+</section>
+
+<section id="a4-photo" data-transition="fade" style="background:#161617;color:#F5F5F7;font-family:'Noto Sans KR', 'Noto Sans CJK KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;padding:112px 128px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:26px;font-weight:600;color:#2997FF">활동 보고 04  ·  2025. 12. 17. / 12. 22.</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1;letter-spacing:-1px;color:#F5F5F7">선후배 멘토링 특강 (미술과·무용과)</h2>
+</div>
+<div style="display:flex;flex-direction:row;gap:16px">
+<img src="images/f05_01.jpg" alt="멘토링 특강 참여 재학생 단체 사진" style="width:1100px;height:688px;object-fit:cover;border-radius:12px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<img src="images/f05_06.jpg" alt="미술과 멘토링 특강 강연 장면" style="width:548px;height:336px;object-fit:cover;border-radius:12px">
+<img src="images/f05_02.jpg" alt="무용과 멘토링 특강 강연 장면" style="width:548px;height:336px;object-fit:cover;border-radius:12px">
+</div>
+</div>
+<aside>네 번째 사업은 모교 재학생을 위한 선후배 멘토링 특강(미술과·무용과)이다.</aside>
+</section>
+
+<section id="a4-text" data-transition="fade" style="background:#F5F5F7;color:#1D1D1F;font-family:'Noto Sans KR', 'Noto Sans CJK KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;padding:112px 128px;display:flex;flex-direction:column;gap:56px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:26px;font-weight:600;color:#0066CC">활동 보고 04</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1;letter-spacing:-1px;color:#1D1D1F">선후배 멘토링 특강 (미술과·무용과)</h2>
+</div>
+<div style="display:flex;flex-direction:row;gap:32px">
+<div style="flex:1.4;display:flex;flex-direction:column;gap:20px;background:#FFFFFF;border:1px solid #E0E0E0;border-radius:18px;padding:40px">
+<p style="font-size:26px;font-weight:600;color:#0066CC">미술과  ·  2회차</p>
+<p style="font-size:34px;font-weight:600">2025. 12. 17.(수) 15:00~16:30</p>
+<div style="display:flex;flex-direction:column;gap:14px;padding:12px 0px 0px 0px;border-top:1px solid #E0E0E0">
+<p style="font-size:28px;line-height:1.5"><b>이예린</b> (4회)  문화유산수리업 전문가</p>
+<p style="font-size:28px;line-height:1.5"><b>김도은</b> (20회)  서울대학교 진학 등 입시 경험 기반 진로·입시 멘토링</p>
+<p style="font-size:28px;line-height:1.5"><b>안소현</b> (24회)  다양한 매체로 활동하는 현역 작가</p>
+</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px;background:#FFFFFF;border:1px solid #E0E0E0;border-radius:18px;padding:40px">
+<p style="font-size:26px;font-weight:600;color:#0066CC">무용과  ·  첫 개최</p>
+<p style="font-size:34px;font-weight:600">2025. 12. 22.(월) 14:00~15:00</p>
+<div style="display:flex;flex-direction:column;gap:14px;padding:12px 0px 0px 0px;border-top:1px solid #E0E0E0">
+<p style="font-size:28px;line-height:1.5"><b>김보라</b> (1회)  국내외 무대에서 활동하는 현대무용가</p>
+</div>
+</div>
+</div>
+<p style="font-size:30px;line-height:1.6;color:#424245">장소: 충남예술고등학교 강당  ·  선배 동문이 전공 이후의 진로 방향과 현장 경험을 재학생과 공유하였다.</p>
+<aside>미술과 특강은 전년에 이어 두 번째, 무용과 특강은 처음으로 개최하였다. 멘토 동문들이 진로 선택 과정과 국내외 무대 경험을 나누어 재학생의 호응을 얻었다. 결과 공지에서 다음 해 음악과 참여를 희망한다고 밝혔다.</aside>
+</section>
+
+<section id="a5-photo" data-transition="fade" style="background:#161617;color:#F5F5F7;font-family:'Noto Sans KR', 'Noto Sans CJK KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;padding:112px 128px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:26px;font-weight:600;color:#2997FF">활동 보고 05  ·  2026. 3. 3.</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1;letter-spacing:-1px;color:#F5F5F7">개학식 총동문회 장학금 수여</h2>
+</div>
+<div style="display:flex;flex-direction:row;gap:16px">
+<img src="images/f06_00.jpg" alt="장학금 수여 장면" style="width:824px;height:688px;object-fit:cover;border-radius:12px">
+<img src="images/f06_01.jpg" alt="장학증서 전달 장면" style="width:824px;height:688px;object-fit:cover;border-radius:12px">
+</div>
+<aside>다섯 번째 사업은 2026년 3월 3일 개학식에서 진행한 총동문회 장학금 수여이다.</aside>
+</section>
+
+<section id="a5-text" data-transition="fade" style="background:#F5F5F7;color:#1D1D1F;font-family:'Noto Sans KR', 'Noto Sans CJK KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;padding:112px 128px;display:flex;flex-direction:column;gap:72px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:26px;font-weight:600;color:#0066CC">활동 보고 05</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1;letter-spacing:-1px;color:#1D1D1F">개학식 총동문회 장학금 수여</h2>
+</div>
+<div style="display:flex;flex-direction:row;gap:96px">
+<div style="width:520px;display:flex;flex-direction:column;gap:36px">
+<div style="display:flex;flex-direction:column;gap:6px"><p style="font-size:24px;color:#6E6E73">일시</p><p style="font-size:34px;font-weight:600">2026. 3. 3. 개학식</p></div>
+<div style="display:flex;flex-direction:column;gap:6px"><p style="font-size:24px;color:#6E6E73">대상</p><p style="font-size:34px;font-weight:600">2학년·3학년 우등생 각 1명</p></div>
+<div style="display:flex;flex-direction:column;gap:6px"><p style="font-size:24px;color:#6E6E73">참석</p><p style="font-size:34px;font-weight:600">정하린 동문회장</p><p style="font-size:34px;font-weight:600">김민환 운영위원장</p></div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:32px;padding:0px 0px 0px 56px;border-left:1px solid #D2D2D7">
+<p style="font-size:32px;line-height:1.6;color:#1D1D1F">총동문회 명의로 재학생 장학금을 수여하였으며, 전년에 이어 연속 시행하였다.</p>
+<p style="font-size:32px;line-height:1.6;color:#1D1D1F">장학금은 동문의 관심과 참여로 조성된 기금으로 운영한다.</p>
+</div>
+</div>
+<aside>작년에 이어 올해도 2학년과 3학년 우등생 각 1명에게 장학금을 전달하였다. 이 장학금은 동문 여러분의 관심과 참여 덕분에 이어지고 있다.</aside>
+</section>
+
+<section id="a6-photo" data-transition="fade" style="background:#161617;color:#F5F5F7;font-family:'Noto Sans KR', 'Noto Sans CJK KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;padding:112px 128px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:26px;font-weight:600;color:#2997FF">활동 보고 06  ·  2026. 7.</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1;letter-spacing:-1px;color:#F5F5F7">개교 30주년 기념행사 동문 참여</h2>
+</div>
+<div style="display:flex;flex-direction:row;justify-content:center;gap:64px">
+<div style="display:flex;flex-direction:column;align-items:center;gap:20px">
+<img src="images/f07_00.jpg" alt="개교 30주년 충남예고 예술제 프로그램북 표지" style="width:476px;height:628px;object-fit:cover;border-radius:12px">
+<p style="font-size:24px;color:#A1A1A6">개교 30주년 예술제 프로그램북</p>
+</div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:20px">
+<img src="images/f07_04.jpg" alt="개교 30주년 기념행사 초대 일정 안내" style="width:476px;height:628px;object-fit:cover;border-radius:12px">
+<p style="font-size:24px;color:#A1A1A6">기념행사 초대 및 일정 안내</p>
+</div>
+</div>
+<aside>여섯 번째 사업은 2026년 7월 모교 개교 30주년 기념 공연 및 전시에 참여한 동문 명단 안내이다.</aside>
+</section>
+
+<section id="a6-text" data-transition="fade" style="background:#F5F5F7;color:#1D1D1F;font-family:'Noto Sans KR', 'Noto Sans CJK KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;padding:112px 128px;display:flex;flex-direction:column;gap:64px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:26px;font-weight:600;color:#0066CC">활동 보고 06  ·  참여 동문 (1)</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1;letter-spacing:-1px;color:#1D1D1F">콜라보 프로젝트 및 음악과</h2>
+</div>
+<div style="display:flex;flex-direction:row;gap:32px">
+<div style="width:600px;display:flex;flex-direction:column;gap:20px;background:#FFFFFF;border:1px solid #E0E0E0;border-radius:18px;padding:40px">
+<p style="font-size:26px;font-weight:600;color:#0066CC">콜라보 프로젝트</p>
+<div style="display:flex;flex-direction:row;gap:24px;padding:14px 0px;border-top:1px solid #E0E0E0"><p style="width:80px;font-size:28px;color:#6E6E73">기획</p><p style="flex:1;font-size:30px;font-weight:600">정하린 (4회)</p></div>
+<div style="display:flex;flex-direction:row;gap:24px;padding:14px 0px;border-top:1px solid #E0E0E0"><p style="width:80px;font-size:28px;color:#6E6E73">음악</p><p style="flex:1;font-size:30px;font-weight:600">공채린 (13회, 가야금)</p></div>
+<div style="display:flex;flex-direction:row;gap:24px;padding:14px 0px;border-top:1px solid #E0E0E0"><p style="width:80px;font-size:28px;color:#6E6E73">미술</p><p style="flex:1;font-size:30px;font-weight:600">김도은 (20회)</p></div>
+<div style="display:flex;flex-direction:row;gap:24px;padding:14px 0px;border-top:1px solid #E0E0E0"><p style="width:80px;font-size:28px;color:#6E6E73">무용</p><p style="flex:1;font-size:30px;font-weight:600">박세진 (18회)</p></div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px;background:#FFFFFF;border:1px solid #E0E0E0;border-radius:18px;padding:40px">
+<p style="font-size:26px;font-weight:600;color:#0066CC">음악과</p>
+<div style="display:flex;flex-direction:row;gap:40px;padding:14px 0px 0px 0px;border-top:1px solid #E0E0E0">
+<div style="flex:1.2;display:flex;flex-direction:column;gap:10px"><p style="font-size:24px;color:#6E6E73">관현악</p><p style="font-size:28px;line-height:1.7">송성결 (13회, 첼로)<br>박가영 (11회, 클라리넷)<br>이순진 (9회, 플루트)</p></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:10px"><p style="font-size:24px;color:#6E6E73">피아노</p><p style="font-size:28px;line-height:1.7">김민환 (9회)<br>김연정 (13회)<br>김죽현 (13회)<br>김혜원 (9회)<br>이솔 (8회)<br>최미경 (7회)</p></div>
+<div style="flex:0.8;display:flex;flex-direction:column;gap:10px"><p style="font-size:24px;color:#6E6E73">성악</p><p style="font-size:28px;line-height:1.7">원지혜 (12회)</p></div>
+</div>
+</div>
+</div>
+<aside>2026년 7월 모교 개교 30주년 기념 공연 및 전시에 참여한 동문 명단이다. 콜라보 프로젝트는 정하린 동문이 기획하고 음악 공채린, 미술 김도은, 무용 박세진 동문이 참여하였다.</aside>
+</section>
+
+<section id="a6-text2" data-transition="fade" style="background:#F5F5F7;color:#1D1D1F;font-family:'Noto Sans KR', 'Noto Sans CJK KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;padding:112px 128px;display:flex;flex-direction:column;gap:64px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:26px;font-weight:600;color:#0066CC">활동 보고 06  ·  참여 동문 (2)</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1;letter-spacing:-1px;color:#1D1D1F">미술과 및 무용과</h2>
+</div>
+<div style="display:flex;flex-direction:row;gap:32px">
+<div style="width:520px;display:flex;flex-direction:column;gap:20px;background:#FFFFFF;border:1px solid #E0E0E0;border-radius:18px;padding:40px">
+<p style="font-size:26px;font-weight:600;color:#0066CC">미술과</p>
+<div style="display:flex;flex-direction:column;padding:14px 0px 0px 0px;border-top:1px solid #E0E0E0"><p style="font-size:28px;line-height:1.7">김소이 (27회)<br>김윤후 (25회)<br>박종연 (18회)<br>안소현 (24회)<br>이예린 (4회)<br>이규진 (27회)<br>정하린 (4회)</p></div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px;background:#FFFFFF;border:1px solid #E0E0E0;border-radius:18px;padding:40px">
+<p style="font-size:26px;font-weight:600;color:#0066CC">무용과</p>
+<div style="display:flex;flex-direction:row;gap:40px;padding:14px 0px 0px 0px;border-top:1px solid #E0E0E0">
+<div style="flex:1;display:flex;flex-direction:column;gap:10px"><p style="font-size:24px;color:#6E6E73">한국무용</p><p style="font-size:28px;line-height:1.7">김현우 (14회)</p></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:10px"><p style="font-size:24px;color:#6E6E73">현대무용</p><p style="font-size:28px;line-height:1.7">박세진 (18회)<br>박종현 (16회)<br>박정우 (23회)<br>남궁진우 (15회)<br>최진솔 (18회)<br>최형규 (18회)</p></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:10px"><p style="font-size:24px;color:#6E6E73">발레</p><p style="font-size:28px;line-height:1.7">신민용 (19회)<br>최영운 (19회)<br>박수종 (21회)</p></div>
+</div>
+</div>
+</div>
+<aside>미술과 7명, 무용과는 한국무용 1명, 현대무용 6명, 발레 3명이 참여하였다.</aside>
+</section>
+
+<section id="a7-photo" data-transition="fade" style="background:#161617;color:#F5F5F7;font-family:'Noto Sans KR', 'Noto Sans CJK KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;padding:112px 128px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:26px;font-weight:600;color:#2997FF">활동 보고 07  ·  2026. 6. 29.~7. 10.</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1;letter-spacing:-1px;color:#F5F5F7">제3회 미술과 동문전 《만개(滿開), 피어나다》</h2>
+</div>
+<div style="display:flex;flex-direction:row;gap:16px">
+<img src="images/f08_00.jpg" alt="제3회 미술과 동문전 만개 포스터" style="width:486px;height:688px;object-fit:cover;border-radius:12px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<img src="images/f08_10.jpg" alt="오픈식 참석 동문과 재학생 단체 사진" style="width:1162px;height:424px;object-fit:cover;border-radius:12px">
+<img src="images/f08_08.jpg" alt="오픈식 테이프 커팅" style="width:1162px;height:248px;object-fit:cover;border-radius:12px">
+</div>
+</div>
+<aside>일곱 번째 사업은 제3회 미술과 동문전 《만개(滿開), 피어나다》이다. 7월 2일 오전 9시 50분 오픈식을 진행하였다.</aside>
+</section>
+
+<section id="a7-text" data-transition="fade" style="background:#F5F5F7;color:#1D1D1F;font-family:'Noto Sans KR', 'Noto Sans CJK KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;padding:112px 128px;display:flex;flex-direction:column;gap:72px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:26px;font-weight:600;color:#0066CC">활동 보고 07</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1;letter-spacing:-1px;color:#1D1D1F">제3회 미술과 동문전 《만개(滿開), 피어나다》</h2>
+</div>
+<div style="display:flex;flex-direction:row;gap:96px">
+<div style="width:520px;display:flex;flex-direction:column;gap:36px">
+<div style="display:flex;flex-direction:column;gap:6px"><p style="font-size:24px;color:#6E6E73">전시 기간</p><p style="font-size:34px;font-weight:600">2026. 6. 29.~7. 10.</p></div>
+<div style="display:flex;flex-direction:column;gap:6px"><p style="font-size:24px;color:#6E6E73">장소</p><p style="font-size:34px;font-weight:600">모교 본관</p></div>
+<div style="display:flex;flex-direction:column;gap:6px"><p style="font-size:24px;color:#6E6E73">오픈식</p><p style="font-size:34px;font-weight:600">2026. 7. 2. 09:50</p></div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:32px;padding:0px 0px 0px 56px;border-left:1px solid #D2D2D7">
+<p style="font-size:24px;font-weight:600;color:#6E6E73">전시 서문 중</p>
+<p style="font-size:32px;line-height:1.7;color:#1D1D1F">만개(滿開)란, 어느 한순간의 화려함만을 뜻하지 않는다. 보이지 않는 시간과 축적, 그리고 각자의 자리에서 행위해 온 변화와 시간들이 모여 비로소 드러나는 순간이다.</p>
+<p style="font-size:40px;font-weight:600;line-height:1.4;color:#0066CC">만개(滿開)는 언제나, 이미 시작되고 있다.</p>
+</div>
+</div>
+<aside>제3회 미술과 동문전은 6월 29일부터 7월 10일까지 학교 본관에서 열렸다. 전통과 현대, 구상과 추상 등 서로 다른 작업이 한 공간에서 만나는 전시로 구성하였다.</aside>
+</section>
+
+<section id="a8-photo" data-transition="fade" style="background:#161617;color:#F5F5F7;font-family:'Noto Sans KR', 'Noto Sans CJK KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;padding:112px 128px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:26px;font-weight:600;color:#2997FF">활동 보고 08  ·  2026. 7.</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1;letter-spacing:-1px;color:#F5F5F7">개교 30주년 기념식 및 예술제</h2>
+</div>
+<div style="display:flex;flex-direction:row;gap:16px">
+<img src="images/f09_03.jpg" alt="동문 음악회 출연진 커튼콜" style="width:1100px;height:688px;object-fit:cover;border-radius:12px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<img src="images/f09_04.jpg" alt="공연 대기실 동문 단체 사진" style="width:548px;height:336px;object-fit:cover;border-radius:12px">
+<img src="images/f09_20.jpg" alt="무용 공연 커튼콜" style="width:548px;height:336px;object-fit:cover;border-radius:12px">
+</div>
+</div>
+<aside>여덟 번째 사업은 개교 30주년 기념식과 예술제, 음악·미술·무용 동문 공연 및 전시이다.</aside>
+</section>
+
+<section id="a8-text" data-transition="fade" style="background:#F5F5F7;color:#1D1D1F;font-family:'Noto Sans KR', 'Noto Sans CJK KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;padding:112px 128px;display:flex;flex-direction:column;gap:72px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:26px;font-weight:600;color:#0066CC">활동 보고 08</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1;letter-spacing:-1px;color:#1D1D1F">개교 30주년 기념식 및 예술제</h2>
+</div>
+<div style="display:flex;flex-direction:row;gap:96px">
+<div style="width:640px;display:flex;flex-direction:column;gap:32px">
+<p style="font-size:32px;line-height:1.6;color:#1D1D1F">개교 30주년 기념식과 예술제를 비롯하여 동문이 함께 준비한 음악·미술·무용 동문 공연 및 전시를 7월 중 모두 마무리하였다.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:0px;padding:0px 0px 0px 56px;border-left:1px solid #D2D2D7">
+<p style="font-size:26px;font-weight:600;color:#0066CC;padding:0px 0px 16px 0px">제2대 총동문회 잔여 일정 (7월 공지 기준)</p>
+<div style="display:flex;flex-direction:row;gap:32px;padding:20px 0px;border-top:1px solid #D2D2D7"><p style="width:200px;font-size:30px;font-weight:600">8. 25.</p><p style="flex:1;font-size:30px">음악과 멘토링 강의 및 동문 운영진 모임</p></div>
+<div style="display:flex;flex-direction:row;gap:32px;padding:20px 0px;border-top:1px solid #D2D2D7;border-bottom:1px solid #D2D2D7"><p style="width:200px;font-size:30px;font-weight:600">10월</p><p style="flex:1;font-size:30px">정기총회 및 동문의 밤</p></div>
+<p style="font-size:28px;line-height:1.6;color:#424245;padding:24px 0px 0px 0px">위 일정을 끝으로 제2대 총동문회는 공식 임기를 마무리하고, 제3대 총동문회가 출범한다.</p>
+</div>
+</div>
+<aside>7월 한 달간 각 과별 공연과 전시가 진행되었다. 바쁜 일정 속에서도 함께해 주신 동문 여러분께 감사드린다. 제2대 총동문회는 오늘 정기총회를 끝으로 공식 임기를 마무리한다.</aside>
+</section>
+
+<section id="a9-photo" data-transition="fade" style="background:#161617;color:#F5F5F7;font-family:'Noto Sans KR', 'Noto Sans CJK KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;padding:112px 128px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:26px;font-weight:600;color:#2997FF">활동 보고 09  ·  2026. 8. 25.</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1;letter-spacing:-1px;color:#F5F5F7">선후배 멘토링 특강 (음악과)</h2>
+</div>
+<div style="display:flex;flex-direction:row;gap:16px">
+<img src="images/f10_12.jpg" alt="음악과 멘토링 특강 참여 재학생 단체 사진" style="width:1100px;height:688px;object-fit:cover;border-radius:12px">
+<img src="images/f10_04.jpg" alt="음악과 멘토링 특강 강연 장면" style="width:548px;height:688px;object-fit:cover;border-radius:12px">
+</div>
+<aside>아홉 번째 사업은 올해 처음 마련한 음악과 선후배 멘토링 특강이다.</aside>
+</section>
+
+<section id="a9-text" data-transition="fade" style="background:#F5F5F7;color:#1D1D1F;font-family:'Noto Sans KR', 'Noto Sans CJK KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;padding:112px 128px;display:flex;flex-direction:column;gap:72px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:26px;font-weight:600;color:#0066CC">활동 보고 09</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1;letter-spacing:-1px;color:#1D1D1F">선후배 멘토링 특강 (음악과)</h2>
+</div>
+<div style="display:flex;flex-direction:row;gap:96px">
+<div style="width:520px;display:flex;flex-direction:column;gap:36px">
+<div style="display:flex;flex-direction:column;gap:6px"><p style="font-size:24px;color:#6E6E73">일시</p><p style="font-size:34px;font-weight:600">2026. 8. 25.</p></div>
+<div style="display:flex;flex-direction:column;gap:6px"><p style="font-size:24px;color:#6E6E73">회차</p><p style="font-size:34px;font-weight:600">멘토링 특강 3년차</p><p style="font-size:34px;font-weight:600">음악과 첫 개최</p></div>
+<div style="display:flex;flex-direction:column;gap:6px"><p style="font-size:24px;color:#6E6E73">멘토</p><p style="font-size:34px;font-weight:600">길고은 (6기)</p><p style="font-size:34px;font-weight:600">이솔 (8기)</p><p style="font-size:34px;font-weight:600">공채린 (13기)</p></div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:32px;padding:0px 0px 0px 56px;border-left:1px solid #D2D2D7">
+<p style="font-size:32px;line-height:1.6;color:#1D1D1F">매년 이어 온 선후배 멘토링 특강을 음악과로 확대하여 3개 과 모두 운영하였다.</p>
+<p style="font-size:32px;line-height:1.6;color:#1D1D1F">멘토 동문이 현장 활동 경험, 예술가로서의 성장 과정, 국내외 무대 경험을 재학생과 공유하였다.</p>
+</div>
+</div>
+<aside>올해 처음 마련한 음악과 멘토링 특강에는 길고은(6기), 이솔(8기), 공채린(13기) 동문이 멘토로 참여하였다. 귀한 경험을 나누어 주신 멘토 동문께 감사드린다.</aside>
+</section>
+
+<section id="a10-photo" data-transition="fade" style="background:#161617;color:#F5F5F7;font-family:'Noto Sans KR', 'Noto Sans CJK KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;padding:112px 128px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:26px;font-weight:600;color:#2997FF">활동 보고 10  ·  2026. 8. 31. / 9. 1.</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1;letter-spacing:-1px;color:#F5F5F7">모교 교장선생님 이·취임</h2>
+</div>
+<div style="display:flex;flex-direction:row;gap:16px">
+<img src="images/f11_01.jpg" alt="정태수 교장선생님 퇴임식 단체 사진" style="width:1100px;height:688px;object-fit:cover;border-radius:12px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<img src="images/f11_00.jpg" alt="정년 퇴임 축하 현수막 앞 기념 사진" style="width:548px;height:336px;object-fit:cover;border-radius:12px">
+<img src="images/f11_03.jpg" alt="박용미 교장선생님 취임식 전경" style="width:548px;height:336px;object-fit:cover;border-radius:12px">
+</div>
+</div>
+<aside>열 번째 소식은 모교 교장선생님 이·취임이다. 8월 31일 정태수 교장선생님 정년 퇴임식, 9월 1일 박용미 교장선생님 취임식이 모교 강당에서 열렸다.</aside>
+</section>
+
+<section id="a10" data-transition="fade" style="background:#161617;color:#F5F5F7;font-family:'Noto Sans KR', 'Noto Sans CJK KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;padding:112px 128px;display:flex;flex-direction:column;gap:96px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:26px;font-weight:600;color:#2997FF">활동 보고 10  ·  동문회 소식</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1;letter-spacing:-1px;color:#F5F5F7">모교 교장선생님 이·취임</h2>
+</div>
+<div style="display:flex;flex-direction:row;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:20px;background:#272729;border-radius:18px;padding:56px">
+<p style="font-size:28px;font-weight:600;color:#A1A1A6">2026. 8. 31.  퇴임</p>
+<p style="font-size:64px;font-weight:600;letter-spacing:-1px">정태수 교장선생님</p>
+<p style="font-size:30px;line-height:1.6;color:#D2D2D7">모교 발전을 위해 헌신해 주신 노고에 깊이 감사드리며, 앞날의 건강과 행복을 기원한다.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px;background:#272729;border-radius:18px;padding:56px">
+<p style="font-size:28px;font-weight:600;color:#2997FF">2026. 9. 1.  취임</p>
+<p style="font-size:64px;font-weight:600;letter-spacing:-1px">박용미 교장선생님</p>
+<p style="font-size:30px;line-height:1.6;color:#D2D2D7">취임을 축하드리며, 모교의 새로운 도약을 총동문회가 함께 응원한다.</p>
+</div>
+</div>
+<aside>8월 31일 정태수 교장선생님이 퇴임하시고, 9월 1일 박용미 교장선생님이 취임하셨다.</aside>
+</section>
+
+<section id="s-ceremony" data-transition="fade" style="background:#161617;color:#F5F5F7;font-family:'Noto Sans KR', 'Noto Sans CJK KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:center;gap:24px">
+<p style="font-size:32px;font-weight:600;color:#2997FF">03 · 04</p>
+<h1 style="font-size:140px;font-weight:700;line-height:1.05;letter-spacing:-4px;color:#F5F5F7">이·취임식</h1>
+<p style="font-size:40px;font-weight:400;color:#A1A1A6">제2대 총동문회 퇴임  ·  제3대 총동문회 취임</p>
+<aside>이어서 제2대 총동문회 퇴임식과 제3대 총동문회 취임식을 진행한다.</aside>
+</section>
+
+<section id="retire" data-transition="fade" style="background:#FBFBFD;color:#1D1D1F;font-family:'Noto Sans KR', 'Noto Sans CJK KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:row;align-items:end;justify-content:space-between">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:26px;font-weight:600;color:#0066CC">퇴임식</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1;letter-spacing:-1px;color:#1D1D1F">제2대 총동문회 임원</h2>
+</div>
+<div style="display:flex;flex-direction:column;align-items:end;gap:4px">
+<p style="font-size:24px;color:#6E6E73">회장</p>
+<p style="font-size:48px;font-weight:600;letter-spacing:-1px">정하린 <span style="color:#6E6E73">미술과 4기</span></p>
+</div>
+</div>
+<div style="display:flex;flex-direction:row;gap:16px">
+<div style="flex:1.3;display:flex;flex-direction:column;gap:12px;background:#FFFFFF;border:1px solid #E0E0E0;border-radius:18px;padding:28px">
+<p style="font-size:24px;font-weight:600;color:#0066CC">부회장</p>
+<p style="font-size:26px;line-height:1.6"><b>음</b>  조원미 (음악과 4기)<br><b>미</b>  안선혜 (미술과 1기)<br><b>무</b>  주세나 (무용과 10기)</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFFFF;border:1px solid #E0E0E0;border-radius:18px;padding:28px">
+<p style="font-size:24px;font-weight:600;color:#0066CC">사무국장</p>
+<p style="font-size:26px;line-height:1.6">윤지혜<br>(음악과 2기)</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFFFF;border:1px solid #E0E0E0;border-radius:18px;padding:28px">
+<p style="font-size:24px;font-weight:600;color:#0066CC">운영위원장</p>
+<p style="font-size:26px;line-height:1.6">김민환<br>(음악과 9기)</p>
+</div>
+<div style="flex:1.1;display:flex;flex-direction:column;gap:12px;background:#FFFFFF;border:1px solid #E0E0E0;border-radius:18px;padding:28px">
+<p style="font-size:24px;font-weight:600;color:#0066CC">감사</p>
+<p style="font-size:26px;line-height:1.6">장연욱 (음악과 1기)<br>안소영 (미술과 4기)</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFFFF;border:1px solid #E0E0E0;border-radius:18px;padding:28px">
+<p style="font-size:24px;font-weight:600;color:#0066CC">고문</p>
+<p style="font-size:26px;line-height:1.6">한지수<br>(음악과 1기, 전 회장)</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px;background:#F5F5F7;border-radius:18px;padding:32px 36px">
+<p style="font-size:24px;font-weight:600;color:#0066CC">운영위원</p>
+<div style="display:grid;grid-template-columns:repeat(4, 1fr);gap:10px">
+<p style="font-size:26px">이정은 (미술과 1기)</p>
+<p style="font-size:26px">심희정 (미술과 1기)</p>
+<p style="font-size:26px">정성희 (미술과 1기)</p>
+<p style="font-size:26px">이규섭 (미술과 1기)</p>
+<p style="font-size:26px">장라영 (음악과 2기)</p>
+<p style="font-size:26px">이예린 (미술과 4기)</p>
+<p style="font-size:26px">진희수 (음악과 6기)</p>
+<p style="font-size:26px">이형은 (음악과 7기)</p>
+<p style="font-size:26px">이솔 (음악과 8기)</p>
+<p style="font-size:26px">정나원 (미술과 13기)</p>
+<p style="font-size:26px">공채린 (음악과 13기)</p>
+<p style="font-size:26px">유효정 (25기)</p>
+</div>
+</div>
+<aside>제2대 총동문회 임원을 소개한다. 회장 정하린(미술과 4기), 부회장 조원미·안선혜·주세나, 사무국장 윤지혜, 운영위원장 김민환, 감사 장연욱·안소영, 고문 한지수, 운영위원 12명이다. 지난 2년간 총동문회를 위해 헌신해 주신 임원진께 감사드린다.</aside>
+</section>
+
+<section id="inaugurate" data-transition="fade" style="background:#FBFBFD;color:#1D1D1F;font-family:'Noto Sans KR', 'Noto Sans CJK KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:row;align-items:end;justify-content:space-between">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:26px;font-weight:600;color:#0066CC">취임식</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1;letter-spacing:-1px;color:#1D1D1F">제3대 총동문회 임원</h2>
+</div>
+<div style="display:flex;flex-direction:column;align-items:end;gap:4px">
+<p style="font-size:24px;color:#6E6E73">회장</p>
+<p style="font-size:48px;font-weight:600;letter-spacing:-1px">주세나 <span style="color:#6E6E73">무용과 10기</span></p>
+</div>
+</div>
+<div style="display:flex;flex-direction:row;gap:16px">
+<div style="flex:1.4;display:flex;flex-direction:column;gap:12px;background:#FFFFFF;border:1px solid #E0E0E0;border-radius:18px;padding:28px">
+<p style="font-size:24px;font-weight:600;color:#0066CC">부회장</p>
+<p style="font-size:26px;line-height:1.6"><b>음</b>  김민환 (음악과 9기)<br><b>미</b>  박종연 (미술과 18기)<br><b>무</b>  박세진 (무용과 18기)</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFFFF;border:1px solid #E0E0E0;border-radius:18px;padding:28px">
+<p style="font-size:24px;font-weight:600;color:#0066CC">사무국장</p>
+<p style="font-size:26px;line-height:1.6">공채린<br>(음악과 13기)</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFFFF;border:1px solid #E0E0E0;border-radius:18px;padding:28px">
+<p style="font-size:24px;font-weight:600;color:#0066CC">예술감독</p>
+<p style="font-size:26px;line-height:1.6">이솔<br>(음악과 8기)</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFFFF;border:1px solid #E0E0E0;border-radius:18px;padding:28px">
+<p style="font-size:24px;font-weight:600;color:#0066CC">회계</p>
+<p style="font-size:26px;line-height:1.6">윤지혜<br>(음악과 2기)</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFFFF;border:1px solid #E0E0E0;border-radius:18px;padding:28px">
+<p style="font-size:24px;font-weight:600;color:#0066CC">감사</p>
+<p style="font-size:26px;line-height:1.6">안선혜<br>(미술과 1기)</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:row;gap:16px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#F5F5F7;border-radius:18px;padding:32px 36px">
+<p style="font-size:24px;font-weight:600;color:#0066CC">고문</p>
+<p style="font-size:28px;font-weight:600">정하린 (전 회장)</p>
+</div>
+<div style="flex:1.6;display:flex;flex-direction:column;gap:12px;background:#F5F5F7;border-radius:18px;padding:32px 36px">
+<p style="font-size:24px;font-weight:600;color:#0066CC">자문위원</p>
+<p style="font-size:28px;font-weight:600">전대 주요 임원 (역대 회장·부회장·사무국장)</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#F5F5F7;border-radius:18px;padding:32px 36px">
+<p style="font-size:24px;font-weight:600;color:#0066CC">그 외</p>
+<p style="font-size:28px;font-weight:600">운영위원 및 이사</p>
+</div>
+</div>
+<aside>제3대 총동문회 임원을 소개한다. 회장 주세나(무용과 10기), 부회장 김민환·박종연·박세진, 사무국장 공채린, 예술감독 이솔, 회계 윤지혜, 감사 안선혜, 고문 정하린 전 회장이다. 역대 회장·부회장·사무국장은 자문위원으로 선임한다.</aside>
+</section>
+
+<section id="orgchange" data-transition="fade" style="background:#F5F5F7;color:#1D1D1F;font-family:'Noto Sans KR', 'Noto Sans CJK KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;padding:112px 128px;display:flex;flex-direction:column;gap:72px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:26px;font-weight:600;color:#0066CC">취임식</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1;letter-spacing:-1px;color:#1D1D1F">조직 체계 변경 사항</h2>
+</div>
+<div style="display:flex;flex-direction:column">
+<div style="display:flex;flex-direction:row;align-items:center;gap:48px;padding:40px 0px;border-top:1px solid #D2D2D7">
+<p style="width:160px;font-size:28px;font-weight:600;color:#0066CC">직함 변경</p>
+<p style="width:420px;font-size:44px;color:#6E6E73">운영위원장</p>
+<x-shape kind="arrow-right" style="background:#0066CC;width:72px;height:36px"></x-shape>
+<p style="flex:1;font-size:44px;font-weight:600">예술감독</p>
+</div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:48px;padding:40px 0px;border-top:1px solid #D2D2D7">
+<p style="width:160px;font-size:28px;font-weight:600;color:#0066CC">직함 변경</p>
+<p style="width:420px;font-size:44px;color:#6E6E73">운영위원</p>
+<x-shape kind="arrow-right" style="background:#0066CC;width:72px;height:36px"></x-shape>
+<p style="flex:1;font-size:44px;font-weight:600">임원</p>
+</div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:48px;padding:40px 0px;border-top:1px solid #D2D2D7;border-bottom:1px solid #D2D2D7">
+<p style="width:160px;font-size:28px;font-weight:600;color:#0066CC">신설</p>
+<p style="width:420px;font-size:44px;font-weight:600">자문위원</p>
+<div style="width:72px;height:36px"></div>
+<p style="flex:1;font-size:32px;line-height:1.5;color:#424245">전대 주요 임원을 자문위원으로 선임하여 필요 시 자문을 요청한다.</p>
+</div>
+</div>
+<aside>제3대 총동문회부터 운영위원장은 예술감독으로, 운영위원은 임원으로 직함을 변경한다. 또한 전대 주요 임원을 자문위원으로 선임하여 필요할 때 자문을 요청한다.</aside>
+</section>
+
+<section id="join" data-transition="fade" style="background:#FBFBFD;color:#1D1D1F;font-family:'Noto Sans KR', 'Noto Sans CJK KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;padding:112px 128px;display:flex;flex-direction:column;gap:64px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:26px;font-weight:600;color:#0066CC">05</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1;letter-spacing:-1px;color:#1D1D1F">총동문회 가입 안내</h2>
+</div>
+<div style="display:flex;flex-direction:row;gap:48px">
+<div style="flex:1;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:30px;line-height:1.6;color:#1D1D1F">충남예술고등학교 총동문회는 2022년 10월 모교 대강당에서 발족식을 열고 공식 설립되었다.</p>
+<div style="display:flex;flex-direction:column;gap:12px;padding:24px 0px 0px 0px;border-top:1px solid #D2D2D7">
+<p style="font-size:24px;font-weight:600;color:#6E6E73">주요 사업</p>
+<p style="font-size:28px;line-height:1.7">국내외 졸업생 교류 및 동문 찾기 캠페인<br>총동문회 개최<br>충남지역 문화예술 발전<br>재학생 장학사업<br>선후배 교류 및 공연·전시 사업</p>
+</div>
+</div>
+<div style="width:760px;display:flex;flex-direction:column;gap:0px;background:#FFFFFF;border:1px solid #E0E0E0;border-radius:18px;padding:16px 44px">
+<div style="display:flex;flex-direction:column;gap:6px;padding:24px 0px"><p style="font-size:24px;color:#6E6E73">가입비</p><p style="font-size:40px;font-weight:600">10,000원</p><p style="font-size:24px;color:#6E6E73">총동문회 발전과 재학생 장학사업에 사용</p></div>
+<div style="display:flex;flex-direction:column;gap:6px;padding:24px 0px;border-top:1px solid #E0E0E0"><p style="font-size:24px;color:#6E6E73">납부 계좌</p><p style="font-size:36px;font-weight:600">농협 355-0079-5476-33</p><p style="font-size:24px;color:#6E6E73">예금주 충남예술고등학교 총동문회</p></div>
+<div style="display:flex;flex-direction:column;gap:6px;padding:24px 0px;border-top:1px solid #E0E0E0"><p style="font-size:24px;color:#6E6E73">가입 신청 및 문의</p><p style="font-size:36px;font-weight:600">인스타그램 c_a_h_school</p><p style="font-size:24px;color:#6E6E73">가입 신청서 작성 및 개인정보 수집·이용 동의</p></div>
+</div>
+</div>
+<aside>아직 가입하지 않은 동문은 가입 신청서를 작성하고 가입비 1만 원을 납부하면 된다. 가입비는 총동문회 발전과 재학생 장학사업에 사용된다. 문의는 총동문회 인스타그램 계정으로 받는다.</aside>
+</section>
+
+<section id="closing" data-transition="fade" style="background:#161617;color:#F5F5F7;font-family:'Noto Sans KR', 'Noto Sans CJK KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:end;gap:20px">
+<img src="images/f03_31.jpg" alt="동문과 재학생 단체 사진" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px;object-fit:cover">
+<div style="position:absolute;left:0px;top:0px;width:1920px;height:1080px;background:linear-gradient(to top, rgba(22,22,23,0.96) 0%, rgba(22,22,23,0.8) 45%, rgba(22,22,23,0.4) 100%)"></div>
+<p style="font-size:32px;font-weight:600;color:#2997FF">06  ·  동문의 밤</p>
+<h1 style="font-size:160px;font-weight:700;line-height:1.05;letter-spacing:-4px;color:#F5F5F7">감사합니다</h1>
+<p style="font-size:36px;font-weight:400;color:#D2D2D7">충남예술고등학교 총동문회</p>
+<aside>지난 2년간 제2대 총동문회에 보내주신 관심과 성원에 감사드린다. 앞으로 제3대 총동문회에도 많은 관심과 참여를 부탁드린다. 이어서 동문의 밤을 진행한다.</aside>
+</section>
+</main>
+<div id="progress"></div>
+<div id="hud">
+  <button id="prev" aria-label="이전 슬라이드">&#8592;</button>
+  <span id="count"></span>
+  <button id="next" aria-label="다음 슬라이드">&#8594;</button>
+  <button id="full" aria-label="전체 화면">&#x26F6;</button>
+</div>
+<script>
+(() => {
+  const stage = document.getElementById('stage');
+  const slides = Array.from(stage.children).filter(el => el.tagName === 'SECTION');
+  const count = document.getElementById('count');
+  const progress = document.getElementById('progress');
+  let i = 0;
+
+  function fit() {
+    const s = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+    stage.style.transform = `translate(-50%, -50%) scale(${s})`;
+  }
+  function show(n) {
+    i = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach((el, k) => el.classList.toggle('active', k === i));
+    count.textContent = `${i + 1} / ${slides.length}`;
+    progress.style.width = `${((i + 1) / slides.length) * 100}%`;
+    history.replaceState(null, '', `#${i + 1}`);
+  }
+  const next = () => show(i + 1), prev = () => show(i - 1);
+  function toggleFull() {
+    if (!document.fullscreenElement) document.documentElement.requestFullscreen?.();
+    else document.exitFullscreen?.();
+  }
+
+  document.addEventListener('keydown', e => {
+    if (['ArrowRight', 'ArrowDown', 'PageDown', ' ', 'Enter'].includes(e.key)) { e.preventDefault(); next(); }
+    else if (['ArrowLeft', 'ArrowUp', 'PageUp', 'Backspace'].includes(e.key)) { e.preventDefault(); prev(); }
+    else if (e.key === 'Home') show(0);
+    else if (e.key === 'End') show(slides.length - 1);
+    else if (e.key === 'f' || e.key === 'F') toggleFull();
+  });
+  document.getElementById('next').onclick = next;
+  document.getElementById('prev').onclick = prev;
+  document.getElementById('full').onclick = toggleFull;
+
+  // swipe on phones and tablets
+  let x0 = null;
+  document.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; }, { passive: true });
+  document.addEventListener('touchend', e => {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 40) (dx < 0 ? next : prev)();
+    x0 = null;
+  });
+
+  window.addEventListener('resize', fit);
+  fit();
+  show((parseInt(location.hash.slice(1), 10) || 1) - 1);
+})();
+</script>
+</body>
+</html>
